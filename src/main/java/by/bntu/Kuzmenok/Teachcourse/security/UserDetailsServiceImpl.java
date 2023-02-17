@@ -16,14 +16,20 @@ import java.util.Collections;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+    private PasswordEncoder passwordEncoder;
+
     public static final String ROLE_USER = "ROLE_USER";
+
     private MyUserDetails userDetails;
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
 
-
+    @Autowired
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
