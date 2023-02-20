@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,95 +21,7 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #f1f1f1">
-      <div class="container-lg">
-        <a class="navbar-brand" href="/html/main.html">
-          <i
-            class="fi fi-rr-book-open-cover"
-            style="vertical-align: middle"
-          ></i>
-          MVS
-        </a>
-        <button
-          class="navbar-toggler"
-          style="margin-left: 60%"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a
-                class="nav-link active me-3"
-                aria-current="page"
-                href="https://rabota.by/?hhtmFrom=vacancy_search_list"
-                >Вакансии</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active me-3"
-                aria-current="page"
-                href="/html/event.html"
-                >Мероприятия</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="btn-group">
-          <button
-            type="button"
-            class="btn"
-            style="border-radius: inherit"
-            data-bs-toggle="dropdown"
-            aria-expanded="true"
-          >
-            <img src="/image/icons/149452.png" width="24" height="24" />
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li>
-              <a class="dropdown-item me-0" href="#">
-                <i class="fi fi-rr-user me-1"></i>
-                Профиль
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item me-0" href="#">
-                <i
-                  class="fi fi-rr-settings me-1"
-                  style="vertical-align: middle"
-                ></i>
-                Мои курсы</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item me-0" href="#">
-                <i class="fi fi-rr-magic-wand me-1"></i>
-                Тема</a
-              >
-            </li>
-            <a>
-              <hr />
-            </a>
-            <li>
-              <a class="dropdown-item me-0" href="#"
-                ><i
-                  class="fi fi-rr-exit me-1"
-                  style="vertical-align: middle"
-                ></i>
-                Выйти</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <div th:insert="~{parts/navbar::nav}"></div>
     <div
       class="container-lg mt-4 mb-4 d-flex justify-content-center align-items-center"
     >
