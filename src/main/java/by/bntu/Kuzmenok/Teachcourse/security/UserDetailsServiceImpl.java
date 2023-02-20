@@ -12,45 +12,59 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
+import java.util.Optional;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private PasswordEncoder passwordEncoder;
-
-    public static final String ROLE_USER = "ROLE_USER";
-
-    private MyUserDetails userDetails;
-    @Autowired
     private UserRepository userRepository;
-    @Autowired
     private RoleRepository roleRepository;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
+
+    @Autowired
+    public void setRoleRepository(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email);
-
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found");
-        }
-        return (UserDetails) user;
+        return new MyUserDetails(userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Could not find user")));
     }
 
     @Transactional
     public boolean saveNewUser(User user){
-        User userDB = userRepository.findByEmail(userDetails.getUsername());
 
-        if (userDB != null) {
+        if (user == null) {
             return false;
         }
-        user.setRoles(Collections.singleton(roleRepository.findByRole(ROLE_USER)));
-        userRepository.save(user);
-        return true;
 
+        if (userRepository.findByEmail(user.getEmail()).isEmpty()){
+            user = User.builder()
+                    .name(user.getName())
+                    .surname(user.getSurname())
+                    .phoneNumber(user.getPhoneNumber())
+                    .email(user.getEmail())
+                    .password(passwordEncoder.encode(user.getPassword()))
+                    .roles(Collections.singleton(roleRepository.findByRole("ROLE_USER")))
+                    .build();
+
+            userRepository.save(user);
+            return true;
+        }
+
+        return false;
     }
 }
+

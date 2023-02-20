@@ -25,7 +25,7 @@ public class RegistrationController {
     @GetMapping("/registration")
     public String getRegistrationPage(Model model) {
         model.addAttribute("userForm", new User());
-        return "/registration";
+        return "registration";
     }
 
     @PostMapping("/registration")
@@ -33,15 +33,15 @@ public class RegistrationController {
                                    BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "/registration";
+            return "registration";
         }
 
-        if (!userDetailsService.saveNewUser(user)) {
-            bindingResult.addError(new FieldError("userForm", "email",
-                    "User with this login is already exists"));
-            return "/registration";
-        }
-
+//        if (!userDetailsService.saveNewUser(user)) {
+//            bindingResult.addError(new FieldError("userForm", "email",
+//                    "User with this email is already exists"));
+//            return "registration";
+//        }
+        userDetailsService.saveNewUser(user);
         return "redirect:/login";
     }
 }
