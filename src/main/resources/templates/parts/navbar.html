@@ -48,11 +48,11 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="true"
                 >
-                    <img src="/149452.png" width="24" height="24" />
+                    <img src="/149452.png" width="24" height="24"/>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item me-0" href="#">
+                        <a class="dropdown-item me-0" href="/profile">
                             <i class="fi fi-rr-user me-1"></i>
                             Профиль
                         </a>
@@ -73,17 +73,30 @@
                         >
                     </li>
                     <a>
-                        <hr />
+                        <hr/>
                     </a>
-                    <li>
-                        <a class="dropdown-item me-0" href="#"
-                        ><i
-                                class="fi fi-rr-exit me-1"
-                                style="vertical-align: middle"
-                        ></i>
-                            Выйти</a
-                        >
-                    </li>
+                    <form th:action="@{/logout}" method="post">
+                        <div>
+                            <li>
+                                <a class="dropdown-item me-0"
+                                ><i
+                                        class="fi fi-rr-exit"
+                                        style="vertical-align: middle"
+                                ></i>
+                                    <input class="btn mb-1" type="submit" value="Выйти"/></a
+                                >
+                            </li>
+                        </div>
+                    </form>
+                    <!--                    <li>-->
+                    <!--                        <a class="dropdown-item me-0"-->
+                    <!--                        ><i-->
+                    <!--                                class="fi fi-rr-exit me-1"-->
+                    <!--                                style="vertical-align: middle"-->
+                    <!--                        ></i>-->
+                    <!--                            Выйти</a-->
+                    <!--                        >-->
+                    <!--                    </li>-->
                 </ul>
             </div>
         </div>
