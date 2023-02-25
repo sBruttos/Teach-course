@@ -29,33 +29,53 @@
         <div class="p-3">
             <h2>Profile </h2>
         </div>
-        <div class="row g-0 mt-0">
-            <div class="col p-2"><strong>Имя :</strong></div>
-            <div class="col p-2" th:text="${user.name}">name</div>
-            <div class="w-100"></div>
-            <hr/>
+        <form th:method="PATCH" th:action="@{/profile/edit}" th:object="${user}">
+            <input type="hidden" th:value="*{id}" name="id">
+            <div class="row g-0 mt-0">
+                <div class="col p-2"><strong>Имя :</strong></div>
+                <input required class="form-control w-50 col p-2 mb-4 " type="text" name="name" th:value="*{name}"/>
+                <div style="color: firebrick" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name
+                    Error
+                </div>
+                <div class="w-100"></div>
 
-            <div class="col p-2"><strong>Фамилия :</strong></div>
-            <div class="col p-2" th:text="${user.surname}">surname</div>
-            <div class="w-100"></div>
-            <hr/>
 
-            <div class="col p-2"><strong>Email :</strong></div>
-            <div class="col p-2" th:text="${user.email}">email</div>
-            <div class="w-100"></div>
-            <hr/>
+                <div class="col p-2"><strong>Фамилия :</strong></div>
+                <input required class="form-control w-50 col p-2 mb-4" type="text" name="surname"
+                       th:value="*{surname}"/>
+                <div style="color: firebrick" th:if="${#fields.hasErrors('surname')}"
+                     th:errors="*{surname}">
+                    Surname Error
+                </div>
+                <div class="w-100"></div>
 
-            <div class="col p-2"><strong>Номер телефона :</strong></div>
-            <div class="col p-2" th:text="${user.phoneNumber}">PhoneNumber</div>
-            <hr/>
-        </div>
-        <button
-                type="button"
-                style="border-radius: 50px"
-                class="btn btn-primary p-2 mt-3 mb-3 w-25"
-        >
-            Изменить
-        </button>
+
+                <div class="col p-2"><strong>Email :</strong></div>
+                <input required class="form-control w-50 p-2 mb-4" type="email" name="email" th:value="*{email}"/>
+                <div style="color: firebrick" th:if="${#fields.hasErrors('email')}"
+                     th:errors="*{email}">
+                    Email Error
+                </div>
+                <div class="w-100"></div>
+
+
+                <div class="col p-2"><strong>Номер телефона :</strong></div>
+                <input required class="form-control w-50 col p-2 mb-4" type="tel" name="phoneNumber"
+                       th:value="*{phoneNumber}"/>
+                <div style="color: firebrick" th:if="${#fields.hasErrors('phoneNumber')}"
+                     th:errors="*{phoneNumber}">
+                    phoneNumber Error
+                </div>
+
+            </div>
+            <button
+                    type="submit"
+                    style="border-radius: 50px"
+                    class="btn btn-primary p-2 mt-3 mb-3 w-25"
+            >
+                Изменить
+            </button>
+        </form>
     </div>
 </div>
 <footer
