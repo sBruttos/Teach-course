@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @PatchMapping("/edit")
-    
+
     public String editUser(@AuthenticationPrincipal MyUserDetails userDetails,
                            @ModelAttribute("user") @Valid UserDto userDto,
                            BindingResult bindingResult) {
