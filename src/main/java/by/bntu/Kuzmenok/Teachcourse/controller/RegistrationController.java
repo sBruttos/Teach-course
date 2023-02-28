@@ -5,7 +5,6 @@ import by.bntu.Kuzmenok.Teachcourse.security.UserDetailsServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +24,7 @@ public class RegistrationController {
     @GetMapping("/registration")
     public String getRegistrationPage(Model model) {
         model.addAttribute("userForm", new User());
-        return "registration";
+        return "util/registration";
     }
 
     @PostMapping("/registration")
@@ -33,7 +32,7 @@ public class RegistrationController {
                                    BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "util/registration";
         }
 
 //        if (!userDetailsService.saveNewUser(user)) {

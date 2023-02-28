@@ -4,7 +4,6 @@ import by.bntu.Kuzmenok.Teachcourse.dto.UserDto;
 import by.bntu.Kuzmenok.Teachcourse.entity.User;
 import by.bntu.Kuzmenok.Teachcourse.mappers.api.UserMapper;
 import by.bntu.Kuzmenok.Teachcourse.security.MyUserDetails;
-import by.bntu.Kuzmenok.Teachcourse.security.UserDetailsServiceImpl;
 import by.bntu.Kuzmenok.Teachcourse.service.api.UserService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -36,7 +35,7 @@ public class UserController {
     public String getUserPage(@AuthenticationPrincipal MyUserDetails userDetails, Model model) {
         User user = userDetails.getUser();
         model.addAttribute("user", userMapper.toDto(user));
-        return "profile";
+        return "user/profile";
     }
 
     @PatchMapping("/edit")
@@ -45,7 +44,7 @@ public class UserController {
                            @ModelAttribute("user") @Valid UserDto userDto,
                            BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "profile";
+            return "user/profile";
         } else {
             userDetails.setUser(userService.save(userMapper.toEntity(userDto)));
         }

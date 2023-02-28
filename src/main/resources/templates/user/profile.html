@@ -31,6 +31,7 @@
         </div>
         <form th:method="PATCH" th:action="@{/profile/edit}" th:object="${user}">
             <input type="hidden" th:value="*{id}" name="id">
+            <input type="hidden" th:value="*{r}" name="id">
             <div class="row g-0 mt-0">
                 <div class="col p-2"><strong>Имя :</strong></div>
                 <input required class="form-control w-50 col p-2 mb-4 " type="text" name="name" th:value="*{name}"/>
