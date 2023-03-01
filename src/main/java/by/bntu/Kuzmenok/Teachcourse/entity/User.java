@@ -28,11 +28,18 @@ public class User implements Serializable {
     private String email;
     private String password;
 
+    @Column(name = "is_active")
+    private boolean active;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "role_has_user", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+    @PrePersist
+    private void prePersist(){
+        this.active = true;
+    }
 
     @Override
     public String toString() {
@@ -43,6 +50,7 @@ public class User implements Serializable {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", active=" + active +
                 ", roles=" + roles +
                 '}';
     }

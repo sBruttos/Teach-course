@@ -45,13 +45,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Transactional
-    public boolean saveNewUser(User user){
+    public boolean saveNewUser(User user) {
 
         if (user == null) {
             return false;
         }
 
-        if (userRepository.findByEmail(user.getEmail()).isEmpty()){
+        if (userRepository.findByEmail(user.getEmail()).isEmpty()) {
             user = User.builder()
                     .name(user.getName())
                     .surname(user.getSurname())
@@ -59,6 +59,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                     .email(user.getEmail())
                     .password(passwordEncoder.encode(user.getPassword()))
                     .roles(Collections.singleton(roleRepository.findByRole("ROLE_USER")))
+                    .active(true)
                     .build();
 
             userRepository.save(user);
@@ -67,10 +68,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return false;
     }
+
     @Transactional
     public Optional<User> findUserById(int id) {
         return userRepository.findById((long) id);
     }
+
     @Transactional
     public List<User> allUsers() {
         return userRepository.findAll();

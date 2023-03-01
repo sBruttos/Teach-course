@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.PrePersist;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -32,4 +33,15 @@ public class UserDto {
     @NotBlank(message = "Email shouldn't be empty")
     @Size(min = 3, max = 20, message = "Email should be between 3 and 20 characters")
     private String email;
+
+    @NotBlank(message = "Email shouldn't be empty")
+    @Size(min = 3, max = 20, message = "Email should be between 3 and 20 characters")
+    private String password;
+
+    private boolean active;
+
+    @PrePersist
+    private void prePersist(){
+        this.active = true;
+    }
 }

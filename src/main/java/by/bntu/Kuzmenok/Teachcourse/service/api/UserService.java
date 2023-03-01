@@ -12,5 +12,9 @@ public interface UserService {
 
     void delete(User user);
 
+    User deactivate(User user);
+    User activate(User user);
+
+
     List<UserDto> getAll();
 }

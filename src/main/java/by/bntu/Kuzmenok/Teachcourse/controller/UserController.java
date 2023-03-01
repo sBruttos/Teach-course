@@ -25,7 +25,6 @@ public class UserController {
     private final UserMapper userMapper;
 
 
-
     public UserController(UserService userService, UserMapper userMapper) {
         this.userService = userService;
         this.userMapper = userMapper;
@@ -41,13 +40,9 @@ public class UserController {
     @PatchMapping("/edit")
 
     public String editUser(@AuthenticationPrincipal MyUserDetails userDetails,
-                           @ModelAttribute("user") @Valid UserDto userDto,
-                           BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "user/profile";
-        } else {
-            userDetails.setUser(userService.save(userMapper.toEntity(userDto)));
-        }
+                           @ModelAttribute("user") @Valid UserDto userDto) {
+
+        userDetails.setUser(userService.save(userMapper.toEntity(userDto)));
         return "redirect:/profile";
     }
 }

@@ -37,6 +37,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User deactivate(User user) {
+        user.setActive(false);
+        return user;
+    }
+
+    @Override
+    public User activate(User user) {
+        user.setActive(true);
+        return user;
+    }
+
+    @Override
     public List<UserDto> getAll() {
         return userRepository.findAll().stream().map(userMapper::toDto).collect(Collectors.toList());
     }
