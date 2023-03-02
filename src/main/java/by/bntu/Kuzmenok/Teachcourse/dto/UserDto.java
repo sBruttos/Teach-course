@@ -34,10 +34,6 @@ public class UserDto {
     @Size(min = 3, max = 20, message = "Email should be between 3 and 20 characters")
     private String email;
 
-    @NotBlank(message = "Email shouldn't be empty")
-    @Size(min = 3, max = 20, message = "Email should be between 3 and 20 characters")
-    private String password;
-
     private boolean active;
 
     @PrePersist

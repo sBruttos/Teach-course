@@ -30,7 +30,6 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Email</th>
-            <th>Password</th>
             <th>Phone Number</th>
             </thead>
             <tr th:each="user : ${allUsers}">
@@ -38,20 +37,18 @@
                 <td th:text="${user.name}">${user.username}</td>
                 <td th:text="${user.surname}">${user.password}</td>
                 <td th:text="${user.email}">${user.password}</td>
-                <td th:text="${user.password}">${user.password}</td>
                 <td th:text="${user.phoneNumber}">${user.password}</td>
-                <td>
+                <td style="display: flex">
                     <form th:action="@{/admin/userList/{id}/activate(id=${user.getId()})}"
                           th:method="PATCH">
-                        <button type="submit">permission</button>
+                        <button class="btn btn-outline-primary" type="submit">permission</button>
                     </form>
-                    <form th:action="@{/admin/userList/{id}/deactivate(id=${user.getId()})}"
+                    <form style="margin-left:5%" th:action="@{/admin/userList/{id}/deactivate(id=${user.getId()})}"
                           th:method="PATCH">
-                        <button type="submit">ban</button>
+                        <button class="btn btn-outline-primary" type="submit">ban</button>
                     </form>
                 </td>
             </tr>
-
         </table>
         <a href="/main">Главная</a>
     </div>
