@@ -23,12 +23,8 @@ public class Course {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Size(min = 3, max = 75, message = "Name should be contains more than 3 characters")
-    @NotBlank(message = "Name should be not empty")
     private String name;
 
-    @Size(min = 10, max = 250, message = "Description should be between 10 and 250 characters")
-    @NotBlank(message = "Description should be not empty")
     private String description;
 
     @Column(name = "fileName")
@@ -38,12 +34,7 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private Set<User> users;
 
-    private boolean status;
 
-    @PrePersist
-    private void prePersist(){
-        this.status = true;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -52,7 +43,6 @@ public class Course {
 
         Course course = (Course) o;
 
-        if (status != course.status) return false;
         if (!id.equals(course.id)) return false;
         if (!name.equals(course.name)) return false;
         if (!description.equals(course.description)) return false;
@@ -65,7 +55,6 @@ public class Course {
         result = 31 * result + name.hashCode();
         result = 31 * result + description.hashCode();
         result = 31 * result + fileName.hashCode();
-        result = 31 * result + (status ? 1 : 0);
         return result;
     }
 
@@ -76,7 +65,6 @@ public class Course {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", fileName='" + fileName + '\'' +
-                ", status=" + status +
                 '}';
     }
 }

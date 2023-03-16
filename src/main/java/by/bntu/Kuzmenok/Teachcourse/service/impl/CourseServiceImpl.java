@@ -6,20 +6,14 @@ import by.bntu.Kuzmenok.Teachcourse.service.api.CourseService;
 import by.bntu.Kuzmenok.Teachcourse.service.api.FileService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 
 @Service
 @Transactional
 public class CourseServiceImpl implements CourseService {
 
-    private final FileService fileService;
-
     private final CourseRepository courseRepository;
 
-    public CourseServiceImpl(FileService fileService, CourseRepository courseRepository) {
-        this.fileService = fileService;
+    public CourseServiceImpl(CourseRepository courseRepository) {
         this.courseRepository = courseRepository;
     }
 
@@ -30,12 +24,10 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Course save(Course course){
-
         course = Course.builder()
                 .name(course.getName())
                 .description(course.getDescription())
                 .build();
-
         return courseRepository.save(course);
     }
 

@@ -67,9 +67,9 @@
     <div class="row my-5">
         <div class="mb-4 d-flex justify-content-between">
             <h3> ВСЕ КУРСЫ</h3>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a role="button" href="/createCourse"  th:if="${#request.isUserInRole('ROLE_MANAGER')}" class="btn btn-primary">
                 Создать
-            </button>
+            </a>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
             <div class="card">
@@ -215,6 +215,6 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"
 ></script>
-<div th:insert="~{parts/modals::editCourseForm}"></div>
+
 </body>
 </html>

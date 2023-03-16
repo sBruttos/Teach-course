@@ -15,7 +15,7 @@ import java.util.UUID;
 @Service
 public class FileServiceImpl implements FileService {
 
-
+    @Value("${upload.path}")
     private String UPLOAD_PATH;
 
     @Override

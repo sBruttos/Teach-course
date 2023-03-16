@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <div th:insert="~{parts/general::import}"></div>
+    <title>Document</title>
+</head>
+<body>
+<div th:insert="~{parts/navbar::nav}"></div>
+<div class="container-lg mt-5">
+    <div class="row justify-content-center">
+        <div class="col-10 col-sm-8 col-md-7 col-lg-6 border p-3 rounded border-2">
+            <form method="post" th:action="@{/createCourse}" th:object="${courseForm}">
+                <h5 class="text-center mt-1 mb-4 fw-bold text-muted">
+                    NEW COURSE
+                </h5>
+                <div class="form-floating mb-3">
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="floatingName"
+                            placeholder="Name"
+                            th:field="*{name}"
+                            required
+                    />
+                    <label for="floatingName"
+                    ><i
+                            class="fi fi-rr-envelope me-1"
+                            style="vertical-align: middle"
+                    ></i>
+                        Name</label
+                    >
+                </div>
+                <div class="form-floating mb-3">
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="floatingDescription"
+                            placeholder="description"
+                            th:field="*{description}"
+                            required
+                    />
+                    <label for="floatingDescription"
+                    ><i
+                            class="fi fi-rr-envelope me-1"
+                            style="vertical-align: middle"
+                    ></i>
+                        Description</label
+                    >
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="file" accept="image/jpeg,image/png" class="btn btn-secondary" name="file">
+                    <br>
+                    <div style="color: firebrick" th:if="${#fields.hasErrors('fileName')}"
+                         th:errors="*{fileName}">File error
+                    </div>
+
+                </div>
+
+                <button
+                        type="submit"
+                        class="btn btn-outline-success w-100 mb-3 fw-bold"
+                >
+                    Submit
+                </button>
+                <div class="text-center">
+              <span
+              >Already have an account?<a
+                      href="/login"
+                      class="text-decoration-none ms-1"
+              >Sign In!</a
+              ></span
+              >
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
