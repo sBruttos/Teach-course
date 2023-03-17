@@ -14,7 +14,9 @@
 <div class="container-lg mt-5">
     <div class="row justify-content-center">
         <div class="col-10 col-sm-8 col-md-7 col-lg-6 border p-3 rounded border-2">
-            <form method="post" th:action="@{/createCourse}" th:object="${courseForm}">
+            <form method="post" th:action="@{/createCourse}" th:object="${courseForm}" enctype="multipart/form-data">
+                <div class="alert alert-success mt-3 mb-3" role="alert" th:if="${msg}" id="my-alert"
+                     th:text="${msg}"></div>
                 <h5 class="text-center mt-1 mb-4 fw-bold text-muted">
                     NEW COURSE
                 </h5>

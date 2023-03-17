@@ -27,7 +27,7 @@ public class Course {
 
     private String description;
 
-    @Column(name = "fileName")
+    @Column(name = "file_name")
     private String fileName;
 
     @Transient

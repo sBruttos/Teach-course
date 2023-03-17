@@ -3,7 +3,6 @@ package by.bntu.Kuzmenok.Teachcourse.service.impl;
 import by.bntu.Kuzmenok.Teachcourse.entity.Course;
 import by.bntu.Kuzmenok.Teachcourse.repository.CourseRepository;
 import by.bntu.Kuzmenok.Teachcourse.service.api.CourseService;
-import by.bntu.Kuzmenok.Teachcourse.service.api.FileService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,11 +22,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course save(Course course){
-        course = Course.builder()
-                .name(course.getName())
-                .description(course.getDescription())
-                .build();
+    public Course save(Course course) {
         return courseRepository.save(course);
     }
 
