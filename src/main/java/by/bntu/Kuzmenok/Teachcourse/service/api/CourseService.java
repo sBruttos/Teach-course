@@ -14,4 +14,6 @@ public interface CourseService {
 
     void delete(Course course);
 
+    List<Course> getAll();
+
 }

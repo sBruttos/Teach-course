@@ -29,7 +29,6 @@ public class AdminController {
         model.addAttribute("allUsers", userService.getAll());
         return "admin/userList";
     }
-
     @PatchMapping("/{id}/deactivate")
     public String deactivateUser(@PathVariable("id") User user){
         userService.save(userService.deactivate(user));

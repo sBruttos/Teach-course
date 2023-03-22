@@ -58,6 +58,12 @@ public class ManagerCourseController {
             redirectAttributes.addFlashAttribute("msg", PRODUCT_ADDED_MSG);
         }
 
-        return "redirect:/main";
+        return "/main";
+    }
+
+    @GetMapping("/main")
+    public String CourseList(Model model){
+        model.addAttribute("allCourse", courseService.getAll());
+        return "/main";
     }
 }

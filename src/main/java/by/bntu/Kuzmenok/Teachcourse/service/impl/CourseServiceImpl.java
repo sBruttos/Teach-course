@@ -6,6 +6,8 @@ import by.bntu.Kuzmenok.Teachcourse.service.api.CourseService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class CourseServiceImpl implements CourseService {
@@ -29,5 +31,10 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public void delete(Course course) {
         courseRepository.delete(course);
+    }
+
+    @Override
+    public List<Course> getAll() {
+        return courseRepository.findAll();
     }
 }
