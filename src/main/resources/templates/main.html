@@ -59,17 +59,15 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" th:each="course : ${allCourse}">
             <div class="card">
-                <div class="col w-25">
-                    <img style=" object-fit: cover"
+                <div class="col">
+                    <img style="height: 300px; width: 300px; object-fit: cover"
                          th:src="@{'/img/' + ${course.fileName}}" class="img-thumbnail">
                 </div>
                 <div class="card-body">
                     <h5 th:text="${course.name}" class="card-title">Математика</h5>
-                    <p th:text="${course.description}" class="card-text">
-                        Наука о количественных отношениях и пространственных формах
-                        нашего мира.
+                    <p style="overflow: hidden" th:text="${course.description}" class="card-text">
                     </p>
-                    <a href="/mathPage" class="btn btn-primary"
+                    <a th:href="@{/coursePage/{id}(id = ${course.getId()})}" class="btn btn-primary"
                     >Узнать больше
                     </a>
                 </div>
@@ -138,21 +136,14 @@
 </div>
 
 <footer class="text-center" style="background-color: #f1f1f1">
-    <!-- Grid container -->
     <div class="container pt-4">
-        <!-- Section: Social media -->
-        <!-- Section: Social media -->
     </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
     <div
             class="text-center text-dark p-3"
             style="background-color: rgba(0, 0, 0, 0.2)"
     >
         © 2022 Kuzmenok Nikita
     </div>
-    <!-- Copyright -->
 </footer>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

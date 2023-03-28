@@ -49,7 +49,7 @@ public class ManagerCourseController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("courseForm", course);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.newProduct", bindingResult);
-            return "redirect:manager/createCourse";
+            return "manager/createCourse";
         }
         course.setFileName(fileService.uploadFile(file));
         courseRepository.save(course);
@@ -58,12 +58,19 @@ public class ManagerCourseController {
             redirectAttributes.addFlashAttribute("msg", PRODUCT_ADDED_MSG);
         }
 
-        return "/main";
+        return "main";
     }
 
     @GetMapping("/main")
-    public String CourseList(Model model){
+    public String CourseList(Model model) {
         model.addAttribute("allCourse", courseService.getAll());
-        return "/main";
+        return "main";
+    }
+
+    @GetMapping("/coursePage/{id}")
+    public String showCourse(@PathVariable("id") long id, Model model) {
+        model.addAttribute("course", courseService.getById(id));
+        return "subject/coursePage";
+
     }
 }
