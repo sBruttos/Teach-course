@@ -67,9 +67,18 @@
                     <h5 th:text="${course.name}" class="card-title">Математика</h5>
                     <p style="overflow: hidden" th:text="${course.description}" class="card-text">
                     </p>
-                    <a th:href="@{/coursePage/{id}(id = ${course.getId()})}" class="btn btn-primary"
-                    >Узнать больше
-                    </a>
+                    <div class="mb-4 d-flex">
+                        <a th:href="@{/coursePage/{id}(id = ${course.getId()})}" class="btn btn-primary"
+                        >Узнать больше
+                        </a>
+                        <form  style="margin-left: 30px" th:if="${#request.isUserInRole('ROLE_MANAGER')}"
+                               th:action="@{/coursePage/{id}(id=${course.getId()})}" th:method="DELETE">
+                            <button  type="submit" class="btn btn-link" style="color: black">
+                                Удалить
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>

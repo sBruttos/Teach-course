@@ -58,7 +58,7 @@ public class ManagerCourseController {
             redirectAttributes.addFlashAttribute("msg", PRODUCT_ADDED_MSG);
         }
 
-        return "main";
+        return "redirect:/main";
     }
 
     @GetMapping("/main")
@@ -72,5 +72,13 @@ public class ManagerCourseController {
         model.addAttribute("course", courseService.getById(id));
         return "subject/coursePage";
 
+    }
+
+    @DeleteMapping ("/coursePage/{id}")
+    public String deleteCourse(@PathVariable("id") Course course) throws IOException{
+        String filename = course.getFileName();
+        courseService.delete(course);
+        fileService.deleteFile(filename);
+        return "redirect:/main";
     }
 }
