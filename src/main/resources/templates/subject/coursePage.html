@@ -24,7 +24,7 @@
 <div class="container-lg mt-4 mb-4">
     <div class="row g-0 justify-content-center">
         <div class="col-12 col-md-6">
-            <img class="img-fluid h-100" th:src="@{'/img/' + ${course.fileName}}"/>
+            <img class="img-fluid h-50 " th:src="@{'/img/' + ${course.fileName}}"/>
         </div>
         <div class="col-12 col-md-6 p-3 ">
             <h3 class="text">Описание</h3>
@@ -52,51 +52,16 @@
     <div class="row g-0">
         <div class="p-3">
             <h3>Содержание учебного материала</h3>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Занятие</th>
-                    <th scope="col">Заголовок</th>
-                    <th scope="col">Длительность</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Лекция 1</td>
-                    <td>Основные понятия</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>Лекция 2</td>
-                    <td>Основные понятия</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>Лекция 3</td>
-                    <td>Основные понятия</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>Лекция 4</td>
-                    <td>Логарифмы</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>Лекция 5</td>
-                    <td>Матрицы</td>
-                    <td>-</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="btn">
+                <a th:href="@{/educationMaterialPage/{id}(id = ${course.getId()})}" class="btn btn-link"
+                >Учебный материал
+                </a>
+            </div>
+
         </div>
     </div>
-    <button
-            type="button"
-            style="border-radius: 10px"
-            class="btn btn-primary p-3 mt-3 w-25"
-    >
-        Записаться
-    </button>
+
+    <button type="submit" class="btn btn-success">Записаться</button>
 </div>
 <footer class="text-center" style="
         background-color: #f1f1f1;

@@ -19,6 +19,7 @@ public class MvsConfig implements WebMvcConfigurer {
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/coursePage").setViewName("subject/coursePage");
         registry.addViewController("/event").setViewName("user/event");
+        registry.addViewController("/educationMaterialPage").setViewName("subject/educationMaterialPage");
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

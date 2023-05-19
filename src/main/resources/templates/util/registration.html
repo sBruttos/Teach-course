@@ -15,7 +15,7 @@
           rel="stylesheet"
           href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
   />
-  <title>Register</title>
+  <title>Регистрация</title>
 </head>
 <body>
 <div class="container-lg mt-5">
@@ -23,7 +23,7 @@
     <div class="col-10 col-sm-8 col-md-7 col-lg-6 border p-3 rounded border-2">
       <form method="post" th:action="@{/registration}" th:object="${userForm}">
         <h5 class="text-center mt-1 mb-4 fw-bold text-muted">
-          NEW ACCOUNT
+          Новый аккаунт
         </h5>
         <div class="row">
           <div class="col-12 col-md-6 mb-3">
@@ -41,7 +41,7 @@
                       class="fi fi-rr-portrait me-1"
                       style="vertical-align: middle"
               ></i
-              >First Name</label
+              >Имя</label
               >
             </div>
           </div>
@@ -60,7 +60,7 @@
                       class="fi fi-rr-portrait me-1"
                       style="vertical-align: middle"
               ></i
-              >Last Name</label
+              >Фамилия</label
               >
             </div>
           </div>
@@ -79,7 +79,7 @@
                   class="fi fi-rr-envelope me-1"
                   style="vertical-align: middle"
           ></i>
-            Email</label
+           Номер телефона</label
           >
         </div>
         <div class="form-floating mb-3">
@@ -114,7 +114,7 @@
                   class="fi fi-rr-lock me-1"
                   style="vertical-align: middle"
           ></i
-          >Password</label
+          >Пароль</label
           >
         </div>
         <div class="form-floating mb-3">
@@ -130,7 +130,7 @@
                   class="fi fi-rr-shield-check me-1"
                   style="vertical-align: middle"
           ></i
-          >Confirm Password</label
+          >Повторить пароль</label
           >
         </div>
         <button
@@ -141,10 +141,10 @@
         </button>
         <div class="text-center">
               <span
-              >Already have an account?<a
+              >У вас есть аккаунт?<a
                       href="/login"
                       class="text-decoration-none ms-1"
-              >Sign In!</a
+              >Авторизоваться!</a
               ></span
               >
         </div>

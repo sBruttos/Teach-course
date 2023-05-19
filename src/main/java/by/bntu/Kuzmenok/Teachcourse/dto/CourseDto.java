@@ -23,4 +23,8 @@ public class CourseDto {
     private String description;
 
     private String fileName;
+
+    @Size(min = 10, max = 15000, message = "Description should be between 10 and 15000 characters")
+    @NotBlank(message = "material should be not empty")
+    private String educat_material;
 }

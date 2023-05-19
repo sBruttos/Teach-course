@@ -74,6 +74,12 @@ public class ManagerCourseController {
 
     }
 
+    @GetMapping("/educationMaterialPage/{id}")
+    public String showMaterial(@PathVariable("id") long id, Model model) {
+        model.addAttribute("course", courseService.getById(id));
+        return "subject/educationMaterialPage";
+
+    }
     @DeleteMapping ("/coursePage/{id}")
     public String deleteCourse(@PathVariable("id") Course course) throws IOException{
         String filename = course.getFileName();

@@ -12,12 +12,12 @@
         <div class="col-12 col-md-6">
             <img
                     class="img-fluid h-100"
-                    src="/christmas-g50207ea9f_1920.jpg"
+                    src="/teacher.jpg"
             />
         </div>
         <div class="col-12 col-md-6 p-3">
             <div class="row">
-                <h3 class="text-center">Что то типо слогана</h3>
+                <h3 class="text-center">Раскрой свой потенциал с учебой: исследуй, расти, достигай!</h3>
                 <div class="col-12 col-md-6 mt-4">
                     <i
                             class="fi fi-rr-badge-check me-2"
@@ -65,15 +65,16 @@
                 </div>
                 <div class="card-body">
                     <h5 th:text="${course.name}" class="card-title">Математика</h5>
-                    <p style="overflow: hidden" th:text="${course.description}" class="card-text">
+                    <p style=" display: -webkit-box;-webkit-line-clamp: 4; overflow: hidden; -webkit-box-orient: vertical"
+                       th:text="${course.description}" class="card-text">
                     </p>
                     <div class="mb-4 d-flex">
                         <a th:href="@{/coursePage/{id}(id = ${course.getId()})}" class="btn btn-primary"
                         >Узнать больше
                         </a>
-                        <form  style="margin-left: 30px" th:if="${#request.isUserInRole('ROLE_MANAGER')}"
-                               th:action="@{/coursePage/{id}(id=${course.getId()})}" th:method="DELETE">
-                            <button  type="submit" class="btn btn-link" style="color: black">
+                        <form style="margin-left: 30px" th:if="${#request.isUserInRole('ROLE_MANAGER')}"
+                              th:action="@{/coursePage/{id}(id=${course.getId()})}" th:method="DELETE">
+                            <button type="submit" class="btn btn-link" style="color: black">
                                 Удалить
                             </button>
                         </form>
@@ -83,65 +84,65 @@
             </div>
         </div>
     </div>
-    <div class="row g-0 justify-content-center border border-5 rounded">
-        <div class="col-12 col-md-8">
-            <img class="img-fluid h-100" src="/teacher.jpg"/>
-        </div>
-        <div class="col-12 col-md-4 p-5">
-            <div class="row">
-                <h3 class="text-center mb-4">СТАНЬТЕ ЧАСТЬЮ КОМАНДЫ</h3>
+<!--    <div class="row g-0 justify-content-center border border-5 rounded">-->
+<!--        <div class="col-12 col-md-8">-->
+<!--            <img class="img-fluid h-100" src="/teacher.jpg"/>-->
+<!--        </div>-->
+<!--        <div class="col-12 col-md-4 p-5">-->
+<!--            <div class="row">-->
+<!--                <h3 class="text-center mb-4">СТАНЬТЕ ЧАСТЬЮ КОМАНДЫ</h3>-->
 
-                <input
-                        class="date p-2 mb-4 w-100 border border-2"
-                        style="border-radius: 10px"
-                        field="name"
-                        type="text"
-                        placeholder="Ваше имя"
-                        autofocus="true"
-                        required
-                />
+<!--                <input-->
+<!--                        class="date p-2 mb-4 w-100 border border-2"-->
+<!--                        style="border-radius: 10px"-->
+<!--                        field="name"-->
+<!--                        type="text"-->
+<!--                        placeholder="Ваше имя"-->
+<!--                        autofocus="true"-->
+<!--                        required-->
+<!--                />-->
 
-                <input
-                        class="date p-2 mb-4 w-100 border border-2"
-                        style="border-radius: 10px"
-                        field="name"
-                        type="text"
-                        placeholder="Ваш номер телефона"
-                        autofocus="true"
-                        required
-                />
+<!--                <input-->
+<!--                        class="date p-2 mb-4 w-100 border border-2"-->
+<!--                        style="border-radius: 10px"-->
+<!--                        field="name"-->
+<!--                        type="text"-->
+<!--                        placeholder="Ваш номер телефона"-->
+<!--                        autofocus="true"-->
+<!--                        required-->
+<!--                />-->
 
-                <select
-                        class="form-select p-2 mb-4 w-100 border border-2"
-                        id="inputGroupSelect01"
-                >
-                    <option selected>Какой язык преподаете?</option>
-                    <option value="1">Математика</option>
-                    <option value="2">Физика</option>
-                    <option value="3">Английский язык</option>
-                    <option value="4">Информатика</option>
-                </select>
+<!--                <select-->
+<!--                        class="form-select p-2 mb-4 w-100 border border-2"-->
+<!--                        id="inputGroupSelect01"-->
+<!--                >-->
+<!--                    <option selected>Какой язык преподаете?</option>-->
+<!--                    <option value="1">Математика</option>-->
+<!--                    <option value="2">Физика</option>-->
+<!--                    <option value="3">Английский язык</option>-->
+<!--                    <option value="4">Информатика</option>-->
+<!--                </select>-->
 
-                <input
-                        class="date p-2 mb-4 w-100 border border-2"
-                        style="border-radius: 10px"
-                        field="name"
-                        type="text"
-                        placeholder="Стаж преподавания*"
-                        autofocus="true"
-                        required
-                />
+<!--                <input-->
+<!--                        class="date p-2 mb-4 w-100 border border-2"-->
+<!--                        style="border-radius: 10px"-->
+<!--                        field="name"-->
+<!--                        type="text"-->
+<!--                        placeholder="Стаж преподавания*"-->
+<!--                        autofocus="true"-->
+<!--                        required-->
+<!--                />-->
 
-                <button
-                        type="button"
-                        style="border-radius: 10px"
-                        class="btn btn-primary p-2 w-100"
-                >
-                    Оставить заявку
-                </button>
-            </div>
-        </div>
-    </div>
+<!--                <button-->
+<!--                        type="button"-->
+<!--                        style="border-radius: 10px"-->
+<!--                        class="btn btn-primary p-2 w-100"-->
+<!--                >-->
+<!--                    Оставить заявку-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 
 <footer class="text-center" style="background-color: #f1f1f1">

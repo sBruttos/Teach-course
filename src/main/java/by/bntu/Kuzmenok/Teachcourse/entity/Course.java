@@ -30,6 +30,9 @@ public class Course {
     @Column(name = "file_name")
     private String fileName;
 
+    @Column(name = "educational_material")
+    private String educat_material;
+
     @Transient
     @ManyToMany(mappedBy = "courses")
     private Set<User> users;

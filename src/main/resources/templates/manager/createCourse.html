@@ -55,6 +55,23 @@
                     >
                 </div>
                 <div class="form-floating mb-3">
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="floatingeducat"
+                            placeholder="educat"
+                            th:field="*{educat_material}"
+                            required
+                    />
+                    <label for="floatingDescription"
+                    ><i
+                            class="fi fi-rr-envelope me-1"
+                            style="vertical-align: middle"
+                    ></i>
+                        EducationMaterial</label
+                    >
+                </div>
+                <div class="form-floating mb-3">
                     <input type="file" accept="image/jpeg,image/png" class="btn btn-secondary" name="file">
                     <br>
                     <div style="color: firebrick" th:if="${#fields.hasErrors('fileName')}"
